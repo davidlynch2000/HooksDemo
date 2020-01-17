@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from 'react';
 import './BookInputItem.css';
+import {useFetchBook} from './HookUtilities';
+
 
 const BookInputItem = ({value,idx}) =>{
 
-  const [title,setTitle] = useState('');
   const [isbn,setIsbn] = useState('')
   const [query,setQuery] = useState('');
+  const [title,setTitle] = useFetchBook(query);
   const changeHandler = (e) =>{
     setIsbn(e.target.value,idx);
   }
@@ -18,16 +20,6 @@ const BookInputItem = ({value,idx}) =>{
     setQuery(isbn);
   }
 
-  useEffect(()=>{
-    const getBook = async() =>{
-
-      const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:'+query);
-      const json = await res.json();
-      setTitle(json.items[0].volumeInfo.title);
-    }
-
-    getBook();
-  },[query])
   return(
     <div className='bookInput'>
       <label>isbn</label>
