@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-const store = createStore((state = { books: [] }, action) => {
+const store = createStore((state = { books: ['Harry Potter and the Goblet of Firebase'] }, action) => {
   switch (action.type) {
     case "add": {
       return {

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 // import NumericInputItem from "./NumericInputItem";
 import BookInputItem from './BookInputItem';
+import {useSelector} from 'react-redux';
 
 const DynamicInputList = () => {
   const [list, setList] = useState([]);
-
+  const books = useSelector(state => state.books);
   const add = () => {
     setList(prevState => {
       return [...prevState, { value: 0 }];
@@ -25,7 +26,7 @@ const DynamicInputList = () => {
   // };
   return (
     <div>
-      {JSON.stringify(list)}
+      {JSON.stringify(books)}
       <div>
         <button type="button" onClick={add}>
           add
