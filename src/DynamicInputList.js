@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import NumericInputItem from "./NumericInputItem";
+// import NumericInputItem from "./NumericInputItem";
+import BookInputItem from './BookInputItem';
 
 const DynamicInputList = () => {
   const [list, setList] = useState([]);
@@ -15,13 +16,13 @@ const DynamicInputList = () => {
     });
   };
 
-  const handleChange = (val, idx) => {
-    setList(prevState => {
-      const updatedState = prevState.slice();
-      updatedState[idx] = { ...prevState[idx], value: val };
-      return updatedState;
-    });
-  };
+  // const handleChange = (val, idx) => {
+  //   setList(prevState => {
+  //     const updatedState = prevState.slice();
+  //     updatedState[idx] = { ...prevState[idx], value: val };
+  //     return updatedState;
+  //   });
+  // };
   return (
     <div>
       {JSON.stringify(list)}
@@ -35,12 +36,13 @@ const DynamicInputList = () => {
       </div>
       {list.map((item, idx) => {
         return (
-          <NumericInputItem
-            value={item.value}
-            key={idx}
-            idx={idx}
-            handleChange={handleChange}
-          />
+          // <NumericInputItem
+          //   value={item.value}
+          //   key={idx}
+          //   idx={idx}
+          //   handleChange={handleChange}
+          // />
+          <BookInputItem key={idx}/>
         );
       })}
     </div>
